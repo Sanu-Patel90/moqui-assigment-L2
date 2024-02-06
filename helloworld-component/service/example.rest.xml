@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!-- General Guideline Verbs: GET=find, POST=create, PUT=store (create or update), PATCH=update, DELETE=delete  -->
+
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/rest-api-3.xsd"
+        name="example" displayName="Example REST API" version="2.0.0">
+    <resource name="examples" require-authentication="anonymous-all">
+        <method type="get"><entity name="ExampleA" operation="list"/></method>
+        <method type="post"><service name="moqui.ExampleService.create#ExampleA"/></method>
+
+  
+   
+     <id name="exampleId">
+            <method type="get"><entity name="ExampleA"  operation="one"/></method>
+            <method type="patch"><service name="moqui.ExampleService.update#ExampleA"/></method>
+     </id>   
+       </resource> 
+</resource>
